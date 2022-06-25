@@ -5,7 +5,6 @@ go 1.18
 require (
 	entgo.io/ent v0.10.1
 	github.com/coreos/go-oidc/v3 v3.2.0
-	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/echo/v4 v4.7.2
 	github.com/rs/zerolog v1.27.0
 	github.com/spf13/viper v1.12.0
