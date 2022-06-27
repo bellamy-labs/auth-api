@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 	"time"
 
@@ -43,9 +42,6 @@ func InitGoogle() (*auth.Provider, error) {
 	googleAuth := func(c echo.Context) error {
 		state := randString(32)
 		nonce := randString(32)
-
-		fmt.Println(state)
-		fmt.Println(nonce)
 
 		sc := &http.Cookie{
 			Path:     "/",

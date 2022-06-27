@@ -37,7 +37,7 @@ func (s *Service) InitService() (*oauth2.Config, error) {
 		ClientID:     s.ClientID,
 		ClientSecret: s.ClientSecret,
 		Endpoint:     provider.Endpoint(),
-		RedirectURL:  "http://127.0.0.1:8080/api/v1/auth/" + s.Provider + "/callback",
+		RedirectURL:  "http://localhost:8080/api/v1/auth/" + s.Provider + "/callback",
 		Scopes:       []string{oidc.ScopeOpenID, "profile", "email"},
 	}, nil
 }

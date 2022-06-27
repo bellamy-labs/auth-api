@@ -1,6 +1,8 @@
 package config
 
-import "github.com/spf13/viper"
+import (
+	"github.com/spf13/viper"
+)
 
 type Config struct {
 	DBHost     string `mapstructure:"DB_HOST"`
@@ -19,18 +21,22 @@ type Config struct {
 
 var Cfg *Config
 
-func LoadConfig(path string) (err error) {
+func LoadConfig(path string) error {
 	viper.AddConfigPath(path)
 	viper.SetConfigName("app")
 	viper.SetConfigType("env")
 
 	viper.AutomaticEnv()
 
-	err = viper.ReadInConfig()
+	err := viper.ReadInConfig()
 	if err != nil {
-		return
+		return err
 	}
 
 	err = viper.Unmarshal(&Cfg)
-	return
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
